@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import { TiThMenu } from "react-icons/ti";
 import { logOut } from "../../Redux/userRedux";
 import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";s
+import { useNavigate } from "react-router-dom";
 
 export default function MainHeader() {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Change initial state to false
   const [linkOpen, setLinkOpen] = useState(false);
@@ -27,7 +27,9 @@ export default function MainHeader() {
     console.log("Logging out...");
 
     dispatch(logOut());
-    window.location.href = "/";
+
+    // Redirect to login page
+    navigate("/");
   };
 
   return (

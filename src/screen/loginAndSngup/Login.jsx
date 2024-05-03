@@ -17,7 +17,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 // import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { loginSuccess, loginFailure, loginStart } from "../../Redux/userRedux";
 import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -25,7 +25,7 @@ export default function Login() {
   const [error, setError] = useState("");
 
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -43,7 +43,8 @@ export default function Login() {
       console.log("User logged in");
       dispatch(loginSuccess(email));
 
-      window.location.href = "/home";
+      // Redirect to home page
+      navigate("/home");
     } catch (error) {
       console.log("Error logging in:", error);
       setError("Invalid email or password");
