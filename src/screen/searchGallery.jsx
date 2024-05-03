@@ -13,7 +13,7 @@ export default function SearchGallery() {
     setIsLoading(true); // Set isLoading to true when starting the fetch
 
     // Fetch data from the API
-    fetch(`http://images-api.nasa.gov/search?q=${searchTerm}`)
+    fetch(`https://images-api.nasa.gov/search?q=${searchTerm}`)
       .then((res) => res.json())
       .then((data) => {
         const items = data.collection.items;
