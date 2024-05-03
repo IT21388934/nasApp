@@ -1,0 +1,23 @@
+.imageCont {
+  width: 100px;
+  /* height: 300px; */
+}
+
+.title {
+  font-size: 2em;
+}
+
+.textPosition {
+  left: 10%;
+}
+
+.widthOfP {
+  width: 400px;
+}
+
+@media (max-width: 780px) {
+  .textPosition {
+    /* visibility: hidden; */
+    display: none;
+  }
+}

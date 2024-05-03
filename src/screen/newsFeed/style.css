@@ -1,0 +1,6 @@
+.line10 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-height: calc(1.5em * 10); /* Adjust based on line height */
+}

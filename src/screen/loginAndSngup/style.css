@@ -1,0 +1,10 @@
+.bgImage {
+  background-image: url("../../assets/loginPageBg.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: -1; /* Adjust the value between 0 and 1 to set the desired opacity */
+}
