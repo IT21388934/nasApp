@@ -27,7 +27,7 @@ export default function MainHeader() {
     console.log("Logging out...");
 
     dispatch(logOut());
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   return (
@@ -43,7 +43,7 @@ export default function MainHeader() {
           >
             <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
               <li>
-                <Link className="text-white mr-4 linkDesign" to={"/"}>
+                <Link className="text-white mr-4 linkDesign" to={"/home"}>
                   Home
                 </Link>
 
@@ -73,7 +73,7 @@ export default function MainHeader() {
               >
                 <ul className="flex flex-col gap-2 p-2 ">
                   <li>
-                    <Link className="text-white mr-4 linkDesign" to={"/"}>
+                    <Link className="text-white mr-4 linkDesign" to={"/home"}>
                       Home
                     </Link>
                   </li>

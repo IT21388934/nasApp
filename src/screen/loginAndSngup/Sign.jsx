@@ -50,6 +50,8 @@ function Sign() {
         email: email,
       });
       console.log("Document written with ID: ", docRef.id);
+
+      window.location.href = "/home";
     } catch (error) {
       console.error("Error signing up:", error);
     }
@@ -153,7 +155,7 @@ function Sign() {
               >
                 SignUp
               </button>
-              <Link to={"/login"}>Already have an account?</Link>
+              <Link to={"/"}>Already have an account?</Link>
 
               <div className="text-center">
                 {/* <p>or sign up with:</p> */}

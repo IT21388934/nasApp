@@ -43,7 +43,7 @@ export default function Login() {
       console.log("User logged in");
       dispatch(loginSuccess(email));
 
-      window.location.href = "/";
+      window.location.href = "/home";
     } catch (error) {
       console.log("Error logging in:", error);
       setError("Invalid email or password");
