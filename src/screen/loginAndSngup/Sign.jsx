@@ -16,10 +16,13 @@ import { auth } from "../../firebase"; // Import from firebaseConfig.js
 import { collection, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 
 function Sign() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [username, setUsername] = useState("");
@@ -51,7 +54,7 @@ function Sign() {
       });
       console.log("Document written with ID: ", docRef.id);
 
-      window.location.href = "/home";
+      navigate("/home");
     } catch (error) {
       console.error("Error signing up:", error);
     }
