@@ -29,6 +29,8 @@ function Sign() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const username = `${firstName} ${lastName}`;
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   // const [image, setImage] = useState(null);
 
   const db = getFirestore();
@@ -38,6 +40,7 @@ function Sign() {
 
   const handleSignUp = async () => {
     try {
+      setLoading(true);
       // Create user with email and password
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -52,11 +55,14 @@ function Sign() {
         username: username,
         email: email,
       });
+      setLoading(false);
       console.log("Document written with ID: ", docRef.id);
 
       navigate("/home");
     } catch (error) {
       console.error("Error signing up:", error);
+      setError(error.message);
+      setLoading(false);
     }
   };
 
@@ -151,13 +157,21 @@ function Sign() {
                   label="I'm agree with the terms and conditions"
                 />
               </div>
+              {error && <p className="text-danger  text-center">{error}</p>}
 
-              <button
-                className="btn btn-primary mb-3 w-100"
-                onClick={handleSignUp}
-              >
-                SignUp
-              </button>
+              {loading ? (
+                <button className="btn btn-secondary mb-3 w-100 disabled">
+                  Loading
+                </button>
+              ) : (
+                <button
+                  className="btn btn-primary mb-3 w-100"
+                  onClick={handleSignUp}
+                >
+                  SignUp
+                </button>
+              )}
+
               <Link to={"/"}>Already have an account?</Link>
 
               <div className="text-center">

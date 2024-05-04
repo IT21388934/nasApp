@@ -24,12 +24,15 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
     setError(""); // Reset error message
+    setLoading(true);
     dispatch(loginStart());
     if (!email || !password) {
       setError("Please fill in all fields");
@@ -42,13 +45,15 @@ export default function Login() {
       //get user id
       console.log("User logged in");
       dispatch(loginSuccess(email));
-
+      setLoading(false);
       // Redirect to home page
       navigate("/home");
     } catch (error) {
       console.log("Error logging in:", error);
       setError("Invalid email or password");
       dispatch(loginFailure(error));
+      setError(error.message);
+      setLoading(false);
     }
   };
 
@@ -122,11 +127,17 @@ export default function Login() {
                 size="lg"
                 onChange={(e) => setPassword(e.target.value)}
               />
-
+              {error && <p className="text-danger  text-center">{error}</p>}
               {/* <MDBBtn className="mb-4">Login</MDBBtn> */}
-              <button className="btn btn-primary mb-3" onClick={handleLogin}>
-                Login
-              </button>
+              {loading ? (
+                <button className="btn btn-secondary mb-3 w-100 disabled">
+                  Loading
+                </button>
+              ) : (
+                <button className="btn btn-primary mb-3" onClick={handleLogin}>
+                  Login
+                </button>
+              )}
 
               <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                 Don&apos;t have an account?{" "}
