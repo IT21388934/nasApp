@@ -15,13 +15,16 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <form className="flex items-center space-x-2" onSubmit={handleSubmit}>
+    <form
+      className="flex items-center space-x-2 text-white"
+      onSubmit={handleSubmit}
+    >
       <input
         type="text"
         placeholder="Search..."
         value={searchTerm}
         onChange={handleChange}
-        className="px-3 py-2 border rounded focus:outline-none focus:border-blue-500"
+        className="px-3 py-2 border rounded focus:outline-none focus:border-blue-500 text-white"
       />
       <button
         type="submit"

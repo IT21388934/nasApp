@@ -6,7 +6,7 @@ import "./style.css"; // Assuming you have your Tailwind CSS styles in a separat
 
 const Home = () => {
   return (
-    <div className="mx-auto h-screen relative">
+    <div className="mx-auto screenh relative">
       <MainHeader />
       <motion.div
         className="flex justify-center h-full"

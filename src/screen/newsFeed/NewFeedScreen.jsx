@@ -35,17 +35,31 @@ export default function NewFeedScreen() {
   return (
     <>
       <MainHeader />
+      <h1 className="text-3xl font-bold text-white text-center mt-10">
+        NASA News Feed
+      </h1>
       <div className="app flex justify-center p-10">
         <div className="news-feed grid grid-cols-2 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {newsData.map((item, index) => (
-            <NewsFeedCard
-              key={index}
-              item={item}
-              setModelOpen={setModelOpen}
-              modelOpen={modelOpen}
-              setModelData={setModelData}
-            />
-          ))}
+          {newsData.length === 0
+            ? Array.from({ length: 8 }).map((index) => (
+                <div key={index}>
+                  <div className="flex flex-col gap-4 w-52">
+                    <div className="skeleton h-96 w-100"></div>
+                    <div className="skeleton h-4 w-28"></div>
+                    <div className="skeleton h-4 w-full"></div>
+                    <div className="skeleton h-4 w-full"></div>
+                  </div>
+                </div>
+              ))
+            : newsData.map((item) => (
+                <NewsFeedCard
+                  key={item.messageID}
+                  item={item}
+                  setModelOpen={setModelOpen}
+                  modelOpen={modelOpen}
+                  setModelData={setModelData}
+                />
+              ))}
         </div>
       </div>
 

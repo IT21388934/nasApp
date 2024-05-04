@@ -53,8 +53,11 @@ export default function MainHeader() {
                   News Feed
                 </Link>
 
-                <Link className="text-white linkDesign " to={"/search"}>
+                <Link className="text-white linkDesign mr-4 " to={"/search"}>
                   Gallery
+                </Link>
+                <Link className="text-white linkDesign " to={"/ast"}>
+                  Asteroid Tracker
                 </Link>
               </li>
             </ul>
@@ -87,6 +90,11 @@ export default function MainHeader() {
                   <li>
                     <Link className="text-white linkDesign " to={"/search"}>
                       Gallery
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="text-white linkDesign " to={"/ast"}>
+                      Asteroid Tracker
                     </Link>
                   </li>
                 </ul>

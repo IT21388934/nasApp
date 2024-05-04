@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewFeedScreen from "./screen/newsFeed/NewFeedScreen";
 import Login from "./screen/loginAndSngup/Login";
 import Sign from "./screen/loginAndSngup/Sign";
+import AsteroidTracker from "./screen/AsteroidTracker/AsteroidTracker";
 
 function App() {
   const user = localStorage.getItem("userState");
@@ -19,6 +20,7 @@ function App() {
 
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Sign />} />
+        <Route path="/ast" element={<AsteroidTracker />} />
       </Routes>
     </BrowserRouter>
   );
