@@ -7,7 +7,9 @@ export default function NewFeedScreen() {
   //get today date
   // const today = new Date();
 
-  const apiKey = "zx0c3zW7zEBBUcoOtADJ9RJi8o26GTefEWDCaOdn";
+  // const apiKey = "zx0c3zW7zEBBUcoOtADJ9RJi8o26GTefEWDCaOdn";
+  // const apiKey = "c4V5mGGN1sB8fRxuzKzKJZc5mDhAXchjrcCxUuGY";
+  const apiKey = "k2AhhsqW4hqtQGU2RwubbiqZCgjivn5JqeioInbS";
   const startDate = "2024-01-01";
   const endDate = "2024-01-07";
   const apiUrl = `https://api.nasa.gov/DONKI/notifications?startDate=${startDate}&endDate=${endDate}&type=all&api_key=${apiKey}`;
@@ -19,6 +21,7 @@ export default function NewFeedScreen() {
   const [modelData, setModelData] = useState({});
 
   useEffect(() => {
+    console.log("fetching data");
     fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
@@ -39,7 +42,7 @@ export default function NewFeedScreen() {
         NASA News Feed
       </h1>
       <div className="app flex justify-center p-10">
-        <div className="news-feed grid grid-cols-2 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="news-feed grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {newsData.length === 0
             ? Array.from({ length: 8 }).map((index) => (
                 <div key={index}>

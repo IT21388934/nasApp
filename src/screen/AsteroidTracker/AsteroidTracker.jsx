@@ -3,6 +3,8 @@ import axios from "axios";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import ASTCard from "./ASTCard";
 
+const apiKey = "k2AhhsqW4hqtQGU2RwubbiqZCgjivn5JqeioInbS";
+
 export default function AsteroidTracker() {
   const [asteroids, setAsteroids] = useState([]);
   const startDate = "2021-10-10";
@@ -12,7 +14,7 @@ export default function AsteroidTracker() {
     const fetchData = async () => {
       try {
         const result = await axios(
-          `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=c4V5mGGN1sB8fRxuzKzKJZc5mDhAXchjrcCxUuGY`
+          `https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=${apiKey}`
         );
         setAsteroids(result.data.near_earth_objects[startDate]);
         console.log("Asteroids: ", result.data.near_earth_objects[startDate]);
