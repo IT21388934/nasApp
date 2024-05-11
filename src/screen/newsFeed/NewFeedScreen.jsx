@@ -12,7 +12,6 @@ export default function NewFeedScreen() {
   const apiKey = "k2AhhsqW4hqtQGU2RwubbiqZCgjivn5JqeioInbS";
   const startDate = "2024-01-01";
   const endDate = "2024-01-07";
-  const apiUrl = `https://api.nasa.gov/DONKI/notifications?startDate=${startDate}&endDate=${endDate}&type=all&api_key=${apiKey}`;
 
   const [newsData, setNewsData] = useState([]);
 
@@ -22,7 +21,9 @@ export default function NewFeedScreen() {
 
   useEffect(() => {
     console.log("fetching data");
-    fetch(apiUrl)
+    fetch(
+      `https://api.nasa.gov/DONKI/notifications?startDate=${startDate}&endDate=${endDate}&type=all&api_key=${apiKey}`
+    )
       .then((response) => response.json())
       .then((data) => {
         // Process the data and display it in your news feed
@@ -33,7 +34,7 @@ export default function NewFeedScreen() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
+  }, [startDate, endDate]);
 
   return (
     <>
